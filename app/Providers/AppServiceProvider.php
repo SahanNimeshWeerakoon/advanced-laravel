@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Channel;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 use App\Billing\BankPaymentGateway;
 use App\Billing\CreditPaymentGateway;
 use App\Billing\PaymentGatewayContract;
@@ -31,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('channels', Channel::orderBy('name')->get());
     }
 }
