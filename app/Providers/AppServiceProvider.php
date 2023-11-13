@@ -40,6 +40,6 @@ class AppServiceProvider extends ServiceProvider
         //     $view->with('channels', Channel::orderBy('name')->get());
         // });
 
-        View::composer(['post.create', 'channel.index'], ChannelsComposer::class);
+        View::composer(['partials.channels.*'], ChannelsComposer::class);
     }
 }
